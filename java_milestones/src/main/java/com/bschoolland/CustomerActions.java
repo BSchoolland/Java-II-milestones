@@ -2,16 +2,30 @@ package com.bschoolland;
 import com.bschoolland.services.StoreFront;
 import com.bschoolland.util.InputUtilities;
 
+/**
+ * This class handles the customer actions for the store front application.
+ * It provides a menu for the customer to view products, search for products, add products to cart, remove products from cart, view cart, and checkout.
+ * It also provides a method to handle the customer actions.
+ */
 public class CustomerActions {
-
+    // store front instance to access the store front functionality
     private StoreFront store;
+    // input utilities instance to handle the user input
     private InputUtilities inputUtilities;
 
+    /**
+     * Constructor for the CustomerActions class.
+     * @param store The store front instance to access the store front functionality.
+     */
     public CustomerActions(StoreFront store) {
         this.store = store;
         this.inputUtilities = new InputUtilities();
     }
-
+    /**
+     * Method to handle the customer actions.
+     * It provides a menu for the customer to view products, search for products, add products to cart, remove products from cart, view cart, and checkout.
+     * It also provides a method to handle the customer actions.
+     */
     public void handleCustomerActions() {
         boolean exitRequested = false;
         while (!exitRequested) {

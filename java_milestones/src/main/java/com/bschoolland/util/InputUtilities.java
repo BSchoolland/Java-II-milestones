@@ -72,6 +72,14 @@ public class InputUtilities {
         return result;
     } 
 
+    /**
+     * Reads a boolean from the console with error handling.
+     * @param prompt The message to prompt the user for input.
+     * @return The valid boolean entered by the user.
+     * To use this method, create an instance of InputUtilities in your class and call the readBoolean() method with a prompt message.
+     * For example: InputUtilities inputUtilities = new InputUtilities();
+     * boolean result = inputUtilities.readBoolean("Enter a boolean: ");
+     */
     public boolean readBoolean(String prompt) {
         boolean result = false;
         boolean isValid = false;
@@ -89,6 +97,15 @@ public class InputUtilities {
     }
 
 
+    /**
+     * Reads a local date from the console with error handling.
+     * @param prompt The message to prompt the user for input.
+     * @param pattern The pattern to use for the date format.
+     * @return The valid local date entered by the user.
+     * To use this method, create an instance of InputUtilities in your class and call the readLocalDate() method with a prompt message and pattern.
+     * For example: InputUtilities inputUtilities = new InputUtilities();
+     * LocalDate result = inputUtilities.readLocalDate("Enter a date: ", "yyyy-MM-dd");
+     */
     public LocalDate readLocalDate(String prompt, String pattern) {
         LocalDate result = null;
         boolean isValid = false;
@@ -105,6 +122,12 @@ public class InputUtilities {
         return result;
     }
 
+    /**
+     * Waits for the user to press Enter.
+     * To use this method, create an instance of InputUtilities in your class and call the waitForEnter() method.
+     * For example: InputUtilities inputUtilities = new InputUtilities();
+     * inputUtilities.waitForEnter();
+     */
     public void waitForEnter() {
         scanner.nextLine();
     }
