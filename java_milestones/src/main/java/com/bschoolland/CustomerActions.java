@@ -1,74 +1,130 @@
 package com.bschoolland;
+
+import com.bschoolland.models.SalableProduct;
 import com.bschoolland.services.StoreFront;
 import com.bschoolland.util.InputUtilities;
 
 /**
- * This class handles the customer actions for the store front application.
- * It provides a menu for the customer to view products, search for products, add products to cart, remove products from cart, view cart, and checkout.
- * It also provides a method to handle the customer actions.
+ * Handles the customer-facing actions for the store front application.
+ * Provides a console menu allowing the customer to view products,
+ * purchase items, and return (cancel) previously purchased items.
+ * Interacts with the {@link StoreFront} to manage inventory operations.
+ *
+ * @author Benjamin Schoolland
+ * @version 2.0
  */
 public class CustomerActions {
-    // store front instance to access the store front functionality
+
+    /** The store front instance providing inventory access. */
     private StoreFront store;
-    // input utilities instance to handle the user input
+
+    /** The input utilities instance for reading user input. */
     private InputUtilities inputUtilities;
 
     /**
-     * Constructor for the CustomerActions class.
-     * @param store The store front instance to access the store front functionality.
+     * Constructs a new CustomerActions with a reference to the store front.
+     *
+     * @param store the {@link StoreFront} instance to access inventory
      */
     public CustomerActions(StoreFront store) {
         this.store = store;
         this.inputUtilities = new InputUtilities();
     }
+
     /**
-     * Method to handle the customer actions.
-     * It provides a menu for the customer to view products, search for products, add products to cart, remove products from cart, view cart, and checkout.
-     * It also provides a method to handle the customer actions.
+     * Runs the main customer interaction loop.
+     * Displays a menu of available commands and processes the customer's
+     * choice until they choose to exit. Provides feedback for each action.
      */
     public void handleCustomerActions() {
         boolean exitRequested = false;
         while (!exitRequested) {
-            System.out.println("You are using the app as a customer.");
+            System.out.println("\n--- Customer Menu ---");
             System.out.println("1. View Products");
-            System.out.println("2. Search For a Product by Name or Description");
-            System.out.println("3. Add Product to Cart");
-            System.out.println("4. Remove Product from Cart");
-            System.out.println("5. View Cart");
-            System.out.println("6. Checkout");
+            System.out.println("2. Purchase a Product");
+            System.out.println("3. Return a Product");
             System.out.println("0. Exit");
-            int choice = inputUtilities.readInt("Enter your choice: ", 0, 6);
+            int choice = inputUtilities.readInt("Enter your choice: ", 0, 3);
             switch (choice) {
                 case 1:
-                    System.out.println("You choose to view products");
+                    viewProducts();
                     break;
                 case 2:
-                    System.out.println("You choose to search for a product by name or description");
+                    purchaseProduct();
                     break;
                 case 3:
-                    System.out.println("You choose to add a product to cart");
-                    break;
-                case 4:
-                    System.out.println("You choose to remove a product from cart");
-                    break;
-                case 5:
-                    System.out.println("You choose to view cart");
-                    break;
-                case 6:
-                    System.out.println("You choose to checkout");
+                    returnProduct();
                     break;
                 case 0:
-                    System.out.println("You choose to exit");
                     exitRequested = true;
                     break;
             }
-            if (!exitRequested) {
-                System.out.println("This is Milestone #1 No actual functionality has been implemented yet.");
-                System.out.println("Press Enter to continue...");
-                inputUtilities.waitForEnter();
-            }
         }
-        System.out.println("Goodbye!");
+        System.out.println("Thank you for visiting the Arena Store. Goodbye!");
+    }
+
+    /**
+     * Displays all available products in the store inventory.
+     */
+    private void viewProducts() {
+        store.displayProducts();
+    }
+
+    /**
+     * Guides the customer through purchasing a product.
+     * Displays the inventory, prompts for a product selection,
+     * and provides feedback on whether the purchase succeeded or failed
+     * (e.g., if the item is out of stock).
+     */
+    private void purchaseProduct() {
+        store.displayProducts();
+        int size = store.getInventorySize();
+        if (size == 0) {
+            System.out.println("No products available for purchase.");
+            return;
+        }
+        System.out.println("Enter 0 to cancel.");
+        int choice = inputUtilities.readInt("Enter the product number to purchase: ", 0, size);
+        if (choice == 0) {
+            System.out.println("Purchase cancelled.");
+            return;
+        }
+        int index = choice - 1;
+        SalableProduct product = store.getProduct(index);
+        if (store.purchaseProduct(index)) {
+            System.out.println("Successfully purchased: " + product.getName()
+                    + " for " + String.format("%.2f", product.getPrice()) + " gold.");
+            System.out.println("Remaining in stock: " + product.getQuantity());
+        } else {
+            System.out.println("Sorry, " + product.getName() + " is out of stock!");
+        }
+    }
+
+    /**
+     * Guides the customer through returning (cancelling) a previously
+     * purchased product. Displays the inventory, prompts for a product
+     * selection, and increases the inventory quantity by one.
+     */
+    private void returnProduct() {
+        store.displayProducts();
+        int size = store.getInventorySize();
+        if (size == 0) {
+            System.out.println("No products available.");
+            return;
+        }
+        System.out.println("Enter 0 to cancel.");
+        int choice = inputUtilities.readInt("Enter the product number to return: ", 0, size);
+        if (choice == 0) {
+            System.out.println("Return cancelled.");
+            return;
+        }
+        int index = choice - 1;
+        SalableProduct product = store.getProduct(index);
+        if (store.returnProduct(index)) {
+            System.out.println("Successfully returned: " + product.getName());
+            System.out.println("Updated stock: " + product.getQuantity());
+        } else {
+            System.out.println("Error: Could not process return.");
+        }
     }
 }
-    

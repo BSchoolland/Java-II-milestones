@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.bschoolland"},{"l":"com.bschoolland.services"},{"l":"com.bschoolland.util"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.bschoolland"},{"l":"com.bschoolland.models"},{"l":"com.bschoolland.services"},{"l":"com.bschoolland.util"}];updateSearchResults();

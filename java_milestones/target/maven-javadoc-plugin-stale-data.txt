@@ -8,14 +8,14 @@
 -source
 '17'
 -sourcepath
-'/home/ben/Projects/Java-II-milestones/java_milestones/src/main/java'
+'/home/ben/Java-II-milestones/java_milestones/src/main/java'
 -author
 -bottom
 'Copyright &#169; 2026. All rights reserved.'
 -charset
 'UTF-8'
 -d
-'/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs'
+'/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs'
 -docencoding
 'UTF-8'
 -doctitle
@@ -24,27 +24,28 @@
 -version
 -windowtitle
 'java_milestones 1.0-SNAPSHOT API'
-com.bschoolland.services
 com.bschoolland
+com.bschoolland.services
+com.bschoolland.models
 com.bschoolland.util
-/home/ben/Projects/Java-II-milestones/java_milestones/src/main/java = 1767919774808
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/package-search-index.js = 1768274339743
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/type-search-index.js = 1768274339743
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/stylesheet.css = 1768274339771
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/tag-search-index.js = 1768274339743
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/module-search-index.js = 1768274339739
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/allclasses-index.html = 1768274339739
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/element-list = 1768274339667
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/search.js = 1768274339771
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/copy.svg = 1768274339771
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/member-search-index.js = 1768274339743
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/link.svg = 1768274339771
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/script.js = 1768274339771
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/index-all.html = 1768274339759
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/allpackages-index.html = 1768274339739
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/overview-tree.html = 1768274339723
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/search.html = 1768274339763
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/help-doc.html = 1768274339767
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/index.html = 1768274339723
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/overview-summary.html = 1768274339763
-/home/ben/Projects/Java-II-milestones/java_milestones/target/reports/apidocs/search-page.js = 1768274339775
+/home/ben/Java-II-milestones/java_milestones/src/main/java = 1770013927551
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/script.js = 1770014203237
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/allpackages-index.html = 1770014203227
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/member-search-index.js = 1770014203228
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/overview-summary.html = 1770014203235
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/stylesheet.css = 1770014203237
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/type-search-index.js = 1770014203228
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/overview-tree.html = 1770014203220
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/search-page.js = 1770014203238
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/element-list = 1770014203199
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/package-search-index.js = 1770014203228
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/index.html = 1770014203221
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/index-all.html = 1770014203233
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/tag-search-index.js = 1770014203228
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/allclasses-index.html = 1770014203226
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/link.svg = 1770014203237
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/module-search-index.js = 1770014203227
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/search.js = 1770014203238
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/search.html = 1770014203234
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/help-doc.html = 1770014203236
+/home/ben/Java-II-milestones/java_milestones/target/reports/apidocs/copy.svg = 1770014203237
