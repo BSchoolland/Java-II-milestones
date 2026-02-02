@@ -1,0 +1,53 @@
+@startuml flowchart
+!pragma layout smetana
+skinparam shadowing false
+skinparam defaultFontName "SansSerif"
+skinparam titleFontSize 16
+skinparam activityFontSize 12
+
+title Flowchart – Game User Interaction with Store Front
+
+start
+
+:Display Welcome Message;
+
+if (Customer or Manager?) then (Customer)
+    :Display Customer Menu;
+    
+    repeat
+        if (Select Action?) then (View Products)
+            :Display All Products
+            in Store Inventory;
+        elseif (Purchase) then
+            :Display Products &
+            Prompt for Selection;
+            if (In Stock?) then (Yes)
+                :Purchase Successful!
+                Quantity Decremented;
+            else (No)
+                :Error: Product is
+                Out of Stock;
+            endif
+        elseif (Return) then
+            :Display Products &
+            Prompt for Return Selection;
+            :Return Successful!
+            Quantity Incremented;
+        elseif (Exit) then
+            :Display Goodbye Message;
+            stop
+        endif
+    repeat while (Back to Menu)
+
+else (Manager)
+    :Display Manager Menu
+    (Placeholder for
+    Future Milestone);
+    :Manager operations
+    not yet implemented;
+    stop
+endif
+
+stop
+
+@enduml

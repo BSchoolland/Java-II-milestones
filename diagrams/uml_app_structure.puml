@@ -1,0 +1,71 @@
+@startuml uml_app_structure
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam classFontSize 13
+skinparam classAttributeFontSize 11
+skinparam shadowing false
+skinparam defaultFontName "SansSerif"
+skinparam titleFontSize 16
+
+title UML Class Diagram – StoreFront Application Structure
+
+class Main {
+    + {static} main(args : String[]) : void
+}
+
+class StartingActions {
+    + start(store : StoreFront) : void
+}
+
+class CustomerActions {
+    - store : StoreFront
+    - inputUtilities : InputUtilities
+    --
+    + CustomerActions(store : StoreFront)
+    + handleCustomerActions() : void
+    - viewProducts() : void
+    - purchaseProduct() : void
+    - returnProduct() : void
+}
+
+class StoreManagerActions {
+    - store : StoreFront
+    - inputUtilities : InputUtilities
+    --
+    + StoreManagerActions(store : StoreFront)
+    + handleManagerActions() : void
+}
+
+class StoreFront {
+    - inventory : List<SalableProduct>
+    --
+    + StoreFront()
+    - initializeInventory() : void
+    + getInventory() : List<SalableProduct>
+    + displayProducts() : void
+    + purchaseProduct(index : int) : boolean
+    + returnProduct(index : int) : boolean
+    + getInventorySize() : int
+    + getProduct(index : int) : SalableProduct
+}
+
+class InputUtilities {
+    - scanner : Scanner
+    --
+    + readInt(prompt : String) : int
+    + readInt(prompt : String, min : int, max : int) : int
+    + readBoolean(prompt : String) : boolean
+    + readLocalDate(prompt : String, pattern : String) : LocalDate
+    + waitForEnter() : void
+}
+
+Main --> StartingActions : creates
+Main --> StoreFront : creates
+StartingActions --> CustomerActions : creates
+StartingActions --> StoreManagerActions : creates
+CustomerActions --> StoreFront : uses
+StoreManagerActions --> StoreFront : uses
+CustomerActions --> InputUtilities : uses
+StoreManagerActions --> InputUtilities : uses
+
+@enduml

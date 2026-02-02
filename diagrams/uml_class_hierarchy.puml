@@ -1,0 +1,84 @@
+@startuml uml_class_hierarchy
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam classFontSize 13
+skinparam classAttributeFontSize 11
+skinparam shadowing false
+skinparam defaultFontName "SansSerif"
+skinparam titleFontSize 16
+
+title UML Class Diagram – Salable Product Hierarchy
+
+class SalableProduct {
+    - name : String
+    - description : String
+    - price : double
+    - quantity : int
+    --
+    + SalableProduct(name, description, price, quantity)
+    + getName() : String
+    + setName(name : String) : void
+    + getDescription() : String
+    + setDescription(description : String) : void
+    + getPrice() : double
+    + setPrice(price : double) : void
+    + getQuantity() : int
+    + setQuantity(quantity : int) : void
+    + toString() : String
+}
+
+class Weapon {
+    - damage : int
+    --
+    + Weapon(name, description, price, quantity, damage)
+    + getDamage() : int
+    + setDamage(damage : int) : void
+    + toString() : String
+}
+
+class Armor {
+    - defense : int
+    --
+    + Armor(name, description, price, quantity, defense)
+    + getDefense() : int
+    + setDefense(defense : int) : void
+    + toString() : String
+}
+
+class Health {
+    - healAmount : int
+    --
+    + Health(name, description, price, quantity, healAmount)
+    + getHealAmount() : int
+    + setHealAmount(healAmount : int) : void
+    + toString() : String
+}
+
+SalableProduct <|-- Weapon
+SalableProduct <|-- Armor
+SalableProduct <|-- Health
+
+note bottom of SalableProduct
+  Base class for all salable products
+  in the Arena Store inventory.
+end note
+
+note bottom of Weapon
+  Inventory:
+  • Flame Sword (Dmg: 35)
+  • Shadow Dagger (Dmg: 20)
+end note
+
+note bottom of Armor
+  Inventory:
+  • Iron Shield (Def: 30)
+  • Dragon Scale Chestplate (Def: 50)
+end note
+
+note bottom of Health
+  Inventory:
+  • Healing Potion (Heal: 50 HP)
+  • Elixir of Life (Heal: 100 HP)
+end note
+
+@enduml
