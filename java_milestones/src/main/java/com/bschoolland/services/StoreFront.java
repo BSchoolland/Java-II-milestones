@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Manages the store front inventory for the arena game.
+ * Manages the store front inventory for the Game Item Shop.
  * Provides functionality to initialize inventory, view products,
  * purchase products, and return (cancel) purchases.
  * The store is populated with hard-coded initial inventory
@@ -76,7 +76,7 @@ public class StoreFront {
      * numbered for easy selection.
      */
     public void displayProducts() {
-        System.out.println("\n===== Arena Store Inventory =====");
+        System.out.println("\n===== Game Item Shop - Inventory =====");
         System.out.printf("%-4s %-25s | %-45s | %13s | %s%n",
                 "#", "Name", "Description", "Price", "Details");
         System.out.println("-".repeat(120));
